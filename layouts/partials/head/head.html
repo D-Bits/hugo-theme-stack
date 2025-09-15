@@ -6,10 +6,13 @@
 {{ with .Params.Keywords }}<meta name="keywords" content="{{ delimit . ", " }}">{{ end }}
 
 {{- $title := partial "data/title" . -}}
-<title>{{ $title }}</title>
+<title>{{ $title }} | Danabases</title>
+
+<!--favicon-->
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
 <link rel='canonical' href='{{ .Permalink }}'>
-
+<link rel="icon" type="image/png" href="{{ "favicon.ico" | relURL }}">
 {{- partial "head/style.html" . -}}
 {{- partial "head/script.html" . -}}
 {{- partial "head/opengraph/include.html" . -}}
@@ -19,7 +22,7 @@
 {{- end -}}
 
 {{ with .Site.Params.favicon }}
-    <link rel="shortcut icon" href="{{ . | relURL }}" />
+    <link rel="shortcut icon" href="static/pics/favicon.ico" />
 {{ end }}
 
 {{- template "_internal/google_analytics.html" . -}}
